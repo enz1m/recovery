@@ -1,0 +1,15 @@
+/target/
+/build/
+/dist/
+/work/
+/artifacts/
+/AGENTS/
+/AGENTS.md
+/.local/
+/.env
+/.env.*
+/keys/
+/secrets/
+*.log
+.DS_Store
+*~

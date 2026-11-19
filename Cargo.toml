@@ -1,0 +1,72 @@
+[package]
+name = "enzimos-recovery"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT"
+publish = false
+description = "Native enzimOS recovery interface"
+
+[dependencies]
+iced = {features = ["wgpu", "tiny-skia", "crisp", "web-colors", "thread-pool", "linux-theme-detection", "wayland", "wayland-dlopen", "wayland-decorations", "canvas", "svg", "a11y", "tokio"], git = "https://github.com/enz1m/enzim-iced.git", rev = "7a1d747489d779ad55d341ef9dd91cc250004388", default-features = false}
+enzui-core = {features = ["accesskit"], git = "https://github.com/enz1m/enzui.git", rev = "d728f9965b0120d776d3f79c05e09c2b9240d7ce"}
+enzui-theme = {git = "https://github.com/enz1m/enzui.git", rev = "d728f9965b0120d776d3f79c05e09c2b9240d7ce"}
+enzui-widgets = {git = "https://github.com/enz1m/enzui.git", rev = "d728f9965b0120d776d3f79c05e09c2b9240d7ce"}
+serde_json = "1"
+tokio = { version = "1", features = ["process", "time", "io-util", "sync", "macros"] }
+zeroize = "1"
+enzimos-recovery-transport = { path = "transport" }
+
+[features]
+default = []
+# Compatibility for existing build commands; all builds use native helpers.
+native-helpers = []
+x11 = ["iced/x11", "enzui-widgets/x11"]
+
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.test]
+debug = "line-tables-only"
+
+[profile.release]
+lto = false
+codegen-units = 16
+debug = 0
+strip = "debuginfo"
+
+[profile.dev.package."*"]
+opt-level = 2
+debug = 0
+incremental = false
+
+[profile.test.package."*"]
+opt-level = 2
+debug = 0
+incremental = false
+
+[patch.crates-io]
+zbus_macros = { git = "https://github.com/enz1m/enzim-zbus.git", rev = "e182645b56d15e637bb6c8144f99ebfa7f900716" }
+zbus_names = { git = "https://github.com/enz1m/enzim-zbus.git", rev = "e182645b56d15e637bb6c8144f99ebfa7f900716" }
+zvariant = { git = "https://github.com/enz1m/enzim-zbus.git", rev = "e182645b56d15e637bb6c8144f99ebfa7f900716" }
+zvariant_derive = { git = "https://github.com/enz1m/enzim-zbus.git", rev = "e182645b56d15e637bb6c8144f99ebfa7f900716" }
+zvariant_utils = { git = "https://github.com/enz1m/enzim-zbus.git", rev = "e182645b56d15e637bb6c8144f99ebfa7f900716" }
+zbus = { git = "https://github.com/enz1m/enzim-zbus.git", rev = "e182645b56d15e637bb6c8144f99ebfa7f900716" }
+winit = { git = "https://github.com/enz1m/enzim-winit.git", rev = "40eeb41f8637ef1620afa377ba006874224b6d65" }
+
+[lints.rust]
+unsafe_code = "deny"
+unexpected_cfgs = { level = "warn", check-cfg = ["cfg(docsrs)"] }
+missing_docs = "warn"
+unreachable_pub = "warn"
+
+[lints.clippy]
+dbg_macro = "warn"
+todo = "warn"
+unimplemented = "warn"
+mem_forget = "warn"
+undocumented_unsafe_blocks = "warn"
+allow_attributes_without_reason = "warn"
+
+[workspace]
+resolver = "3"
