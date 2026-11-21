@@ -8,10 +8,10 @@ publish = false
 description = "Native enzimOS recovery interface"
 
 [dependencies]
-iced = {features = ["wgpu", "tiny-skia", "crisp", "web-colors", "thread-pool", "linux-theme-detection", "wayland", "wayland-dlopen", "wayland-decorations", "canvas", "svg", "a11y", "tokio"], git = "https://github.com/enz1m/enzim-iced.git", rev = "7a1d747489d779ad55d341ef9dd91cc250004388", default-features = false}
-enzui-core = {features = ["accesskit"], git = "https://github.com/enz1m/enzui.git", rev = "d728f9965b0120d776d3f79c05e09c2b9240d7ce"}
-enzui-theme = {git = "https://github.com/enz1m/enzui.git", rev = "d728f9965b0120d776d3f79c05e09c2b9240d7ce"}
-enzui-widgets = {git = "https://github.com/enz1m/enzui.git", rev = "d728f9965b0120d776d3f79c05e09c2b9240d7ce"}
+iced = {features = ["wgpu", "tiny-skia", "crisp", "web-colors", "thread-pool", "linux-theme-detection", "wayland", "wayland-dlopen", "wayland-decorations", "canvas", "svg", "a11y", "tokio"], git = "https://github.com/enz1m/enzim-iced.git", rev = "e36b07b591661fdb666088fc943cc0b927a2367b", default-features = false}
+enzui-core = {features = ["accesskit"], git = "https://github.com/enz1m/enzui.git", tag = "v0.3.0-alpha.1"}
+enzui-theme = {git = "https://github.com/enz1m/enzui.git", tag = "v0.3.0-alpha.1"}
+enzui-widgets = {git = "https://github.com/enz1m/enzui.git", tag = "v0.3.0-alpha.1"}
 serde_json = "1"
 tokio = { version = "1", features = ["process", "time", "io-util", "sync", "macros"] }
 zeroize = "1"
