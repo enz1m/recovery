@@ -894,8 +894,8 @@ dependencies = [
 
 [[package]]
 name = "enzimos-platform"
-version = "0.2.0"
-source = "git+https://github.com/enz1m/enzimos-packages.git?rev=bfbc46409befb5bbd67e766a1175f6b0a94774d7#bfbc46409befb5bbd67e766a1175f6b0a94774d7"
+version = "0.2.1"
+source = "git+https://github.com/enz1m/enzimos-packages.git?rev=9464e408f98142da5659bc97ce80173d84d1acf8#9464e408f98142da5659bc97ce80173d84d1acf8"
 dependencies = [
  "libc",
  "serde",
@@ -905,7 +905,7 @@ dependencies = [
 
 [[package]]
 name = "enzimos-recovery"
-version = "0.1.0"
+version = "0.2.1"
 dependencies = [
  "enzimos-recovery-transport",
  "enzui-core",
