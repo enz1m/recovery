@@ -107,7 +107,7 @@ impl Recovery {
                 .push(row![enz_icon("folder-check").size(22.0).tint_theme_accent(),column![
                     enz_text(crate::i18n::label("Your personal files stay as they are")).size(TextSize::Title3),
                     enz_text(crate::i18n::label("System files return to this restore point. Your home folder, disk encryption and package trust are preserved.")).tone(TextTone::Muted)].spacing(8)] .spacing(12))
-                .push(enz_text(crate::i18n::label("The computer restarts, asks for your disk passphrase, and restores the system automatically. Keep it connected to power.")).tone(TextTone::Muted));
+                .push(enz_text(crate::i18n::label("After restarting, choose enzimOS in the firmware boot menu if another operating system starts by default. Enter your enzimOS disk passphrase to begin recovery. Keep the computer connected to power.")).tone(TextTone::Muted));
         } else {
             detail=detail.push(enz_icon("history").size(40.0).tint_theme_accent())
                 .push(enz_text(crate::i18n::label("Choose a restore point")).size(TextSize::Title2))
